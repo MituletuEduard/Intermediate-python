@@ -1,4 +1,31 @@
+import unittest
+import math
 
+
+def get_sqrt(n):
+    return math.sqrt(n)
+
+
+def divide(a, b):
+    return a / b
+
+
+class TestUnexpected(unittest.TestCase):
+    def test_get_sqrt(self):  # test method for get_sqrt
+        self.assertEqual(get_sqrt(144), 12)
+        # Check that taking the square root of a negative number raises a ValueError
+        with self.assertRaises(ValueError):
+            get_sqrt(-1)
+
+    def test_divide(self):  # test method for divide
+        self.assertEqual(divide(144, 12), 12)
+        # Check that dividing by zero (0) raises a ZeroDivisionError
+        with self.assertRaises(ZeroDivisionError):
+            divide(144, 0)
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 """
 Docstring for Intermediate python.Functional programming.Testing.18. Unexpected.app
